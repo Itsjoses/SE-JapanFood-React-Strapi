@@ -67,8 +67,7 @@ export default function Menu() {
                   datas.map((data) => (
                     <ProductCard
                       background={
-                        "http://localhost:1337" +
-                        data.image
+                        `${import.meta.env.VITE_API_URL}${data.image}`
                       }
                       title={data.title}
                       price={data.price}

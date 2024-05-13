@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  frontend:
+    container_name: japanfood-fe
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5174:80"
+    networks:
+      - "japanfood_be_fe"
+
+networks:
+  japanfood_be_fe:
+    external: "true"
+

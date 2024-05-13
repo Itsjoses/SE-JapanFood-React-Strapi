@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  strapi:
+    container_name: strapi-be
+    build: .
+    ports:
+      - "6001:1337" 
+    restart: always
+    volumes:
+      - ./config:/opt/app/config
+      - ./src:/opt/app/src
+      - ./package.json:/opt/package.json
+      - ./yarn.lock:/opt/yarn.lock
+      - ./.env:/opt/app/.env
+      - ./public:/opt/app/public
+    networks:
+      - japanfood_be_fe
+
+networks:
+  japanfood_be_fe:
+    external: true

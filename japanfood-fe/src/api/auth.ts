@@ -4,7 +4,7 @@ import { getTokenFromLocalCookie } from "../libs/auth";
 export const apiLogin = async(data : { identifier: string; password: string }) => {
     try {   
         const responseData = await axiosHttpRequest({
-            endpoint: `api/auth/local`,
+            endpoint: `/api/auth/local`,
             body: {
               identifier: data.identifier,
               password: data.password,
@@ -23,7 +23,7 @@ export const apiLogin = async(data : { identifier: string; password: string }) =
 export const apiRegister = async(data : { username: string,email: string; password: string }) => {
   try {   
       const responseData = await axiosHttpRequest({
-          endpoint: `api/auth/local/register`,
+          endpoint: `/api/auth/local/register`,
           body: {
             username: data.username,
             email: data.email,
@@ -44,7 +44,7 @@ export const apiCheckUsername= async() => {
   const jwtLocal = getTokenFromLocalCookie()
   try {   
     const responseData = await axiosHttpRequest({
-        endpoint: `api/users/me`,
+        endpoint: `/api/users/me`,
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${jwtLocal}`,
